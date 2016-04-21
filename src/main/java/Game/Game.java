@@ -28,7 +28,6 @@ public class Game {
     private static int generateRandom() {
         Random random = new Random();
         return random.nextInt(100) + 1;
-
     }
 
     private static int myScanner() {
