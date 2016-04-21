@@ -3,8 +3,8 @@ package Fraction;
 import java.util.Scanner;
 
 public class Fraction {
-    public int nominator;
-    public int denominator;
+    private int nominator;
+    private int denominator;
 
     public Fraction(){}
 
