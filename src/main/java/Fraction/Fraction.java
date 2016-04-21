@@ -37,9 +37,4 @@ public class Fraction {
         return nominator + "/" + denominator;
     }
 
-    public static int myScanner() {
-        Scanner in = new Scanner(System.in);
-        String scan = in.nextLine();
-        return Integer.valueOf(scan);
-    }
 }

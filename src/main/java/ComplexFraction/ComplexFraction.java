@@ -11,16 +11,4 @@ public class ComplexFraction extends Fraction {
         this.denominator1 = denominator1;
 
     }
-    public String toString(){
-        return  this.nominator1 +"/"+ this.denominator1 + "i";
-    }
-
-//    public ComplexFraction multiplication(ComplexFraction cF) {
-//        return new ComplexFraction();
-//    }
-
-//    public void complex(){
-//        ComplexFraction complexFraction = new ComplexFraction(3,4,"i");
-//        System.out.println(complexFraction);
-//    }
 }

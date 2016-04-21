@@ -1,7 +1,6 @@
 import ComplexFraction.ComplexFraction;
 import Fraction.Fraction;
 import Game.Game;
-
 import java.util.Scanner;
 
 public class Main {
@@ -11,8 +10,6 @@ public class Main {
 
         ComplexFraction complexFraction = new ComplexFraction(2,5);
         ComplexFraction complexFraction1 = new ComplexFraction(1,5);
-
-
 
         int answer = mainScanner();
         if(answer==1){
