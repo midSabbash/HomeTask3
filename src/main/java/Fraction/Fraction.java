@@ -1,4 +1,4 @@
-package com.company.home.Fraction;
+package Fraction;
 
 import java.util.Scanner;
 

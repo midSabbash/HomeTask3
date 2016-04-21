@@ -1,8 +1,6 @@
-package com.company.home.ComplexFraction;
+package ComplexFraction;
 
-import com.company.home.Fraction.Fraction;
-
-import static java.lang.Double.POSITIVE_INFINITY;
+import Fraction.Fraction;
 
 public class ComplexFraction extends Fraction {
     private int nominator1;
