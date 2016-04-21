@@ -3,54 +3,43 @@ package com.company.home.Fraction;
 import java.util.Scanner;
 
 public class Fraction {
-    //  сумма
-    public static double summing (int a, int b, int c, int d) {
-        double sum = 0;
-        if(b == d){
-            sum = (double) (a + c) / d;
-            System.out.println((a+c) + "/" + d);
-            return sum;
-        }
-        if(b != d){
-            sum = (double) (a * d + b * c) / (b * d);
-            System.out.println( (a * d + b * c) + "/" + (b * d));
-            return sum;
-        }
-        return sum ;
+    public int nominator;
+    public int denominator;
+
+    public Fraction(){}
+
+    public Fraction(int nominator, int denominator){
+        this.nominator = nominator;
+        this.denominator = denominator;
     }
-    //  вычитание
-    public static double subtraction (int a, int b, int c, int d ){
-        double sum = 0;
-        if(b == d){
-            sum = (double) (a - c) / d;
-            System.out.println((a-c) + "/" + d);
-            return sum;
-        }
-        if(b != d) {
-            sum = (double) (a * d - b * c) / (b * d);
-            System.out.println((a * d - b * c) + "/" + (b * d));
-            return sum;
-        }
-        return sum;
+
+    public Fraction summing(Fraction f) {
+        return new Fraction(this.nominator * f.denominator + f.nominator * this.denominator, this.denominator * f.denominator);
     }
-    //  деление
-    public static double division (int a, int b, int c, int d){
-        double sum = 0;
-        sum = (double) (a * b) / (c * d);
-        System.out.println((a*b) + "/" + (c*d));
-        return sum;
+
+    public Fraction subtraction(Fraction f) {
+        return new Fraction(this.nominator * f.denominator - f.nominator * this.denominator, this.denominator * f.denominator);
     }
-    //  умножение
-    public static double multiplication (int a, int b, int c, int d){
-        double sum = 0;
-        sum = (a*c) / (b*d);
-        System.out.println((a*c) + "/" + (b*d));
-        return sum;
+
+    public Fraction multiplication(Fraction f) {
+        return new Fraction(this.nominator * f.nominator, this.denominator * f.denominator);
     }
+
+    public Fraction divide(Fraction f) {
+        return new Fraction (this.nominator * f.denominator, this.denominator * f.nominator);
+    }
+
+    public static double simplify(Fraction f) {
+        return (double) f.nominator / f.denominator;
+    }
+
+    public String toString() {
+        return nominator + "/" + denominator;
+    }
+
     public static int myScanner() {
         Scanner in = new Scanner(System.in);
         String scan = in.nextLine();
-        int answer = Integer.valueOf(scan);
-        return answer;
+        return Integer.valueOf(scan);
     }
 }

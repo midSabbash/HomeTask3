@@ -4,12 +4,15 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
-
-    public static void theGame() {
+    public void theGame() {
         System.out.println("Enter the number from 1 to 100 ");
         int random = generateRandom();
         int answer = myScanner();
-        while (answer!=random){
+        while (answer != random) {
+            if (answer <= 0 | answer > 100) {
+                System.out.println("Wrong number");
+                answer = myScanner();
+            }
             if (answer < random) {
                 System.out.println("small");
                 answer = myScanner();
@@ -19,21 +22,24 @@ public class Game {
                 answer = myScanner();
             }
         }
-        System.out.println("Yuo win!");
+        System.out.println("You win!");
     }
-    public static int generateRandom () {
+
+    private static int generateRandom() {
         Random random = new Random();
-        int n = random.nextInt(100)+1;
-        return n;
+        return random.nextInt(100) + 1;
+
     }
-    public static int myScanner() {
-        Scanner in = new Scanner(System.in);
-        String scan = in.nextLine();
-        int answer = Integer.valueOf(scan);
-        while (answer<=0|answer>100) {
-            System.out.println("Wrong number");
-            return myScanner();
+
+    private static int myScanner() {
+        try {
+            Scanner in = new Scanner(System.in);
+            String scan = in.nextLine();
+            return Integer.valueOf(scan);
+        } catch (NumberFormatException e) {
+            System.out.println("You can enter only number");
         }
-        return answer;
+        return myScanner();
     }
 }
+
