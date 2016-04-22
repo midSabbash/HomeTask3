@@ -8,12 +8,13 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Enter 1|2|3|4");
 
+        Game game = new Game();
         ComplexFraction complexFraction = new ComplexFraction(2,5);
         ComplexFraction complexFraction1 = new ComplexFraction(1,5);
 
         int answer = mainScanner();
+
         if(answer==1){
-            Game game = new Game();
             game.theGame();
         }
         if(answer==2){
