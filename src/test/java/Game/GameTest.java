@@ -39,12 +39,16 @@ public class GameTest {
 
     @Test (expectedExceptions = NumberFormatException.class)
     public void myScannerTest1() {
+
+//        if(Game.gameScanner() == "null" ){
+//            throw new NumberFormatException();
+        }
 //        try {
 //            Game.gameScanner() = new System.in("adgas");
 //        } catch (NumberFormatException e) {
 //            e.printStackTrace();
 //        }
-    }
+//    }
 
     public static int randomAnswer() {
         Random random = new Random();

@@ -9,8 +9,16 @@ public class Main {
         System.out.println("Enter 1|2|3|4");
 
         Game game = new Game();
-        ComplexFraction complexFraction = new ComplexFraction(2,5);
-        ComplexFraction complexFraction1 = new ComplexFraction(1,5);
+        ComplexFraction complexFraction = new ComplexFraction(1,2,3,4);
+        ComplexFraction complexFraction1 = new ComplexFraction(5,6,7,8);
+
+        System.out.println(complexFraction.summing(complexFraction1));
+        System.out.println(complexFraction.subtract(complexFraction1));
+
+
+
+//        ComplexFraction complexFraction2 = new ComplexFraction();
+//        ComplexFraction complexFraction3 = new ComplexFraction(3,5);
 
         int answer = mainScanner();
 
@@ -27,9 +35,7 @@ public class Main {
             System.out.println("The divide result " + fraction.divide(fraction1) + " Simplify -> " + Fraction.simplify(fraction.divide(fraction1)));
         }
         if(answer==3){
-            System.out.println(complexFraction);
-            System.out.println(complexFraction1);
-            System.out.println(complexFraction.multiplication(complexFraction1));
+
         }
     }
     private static int mainScanner() {
