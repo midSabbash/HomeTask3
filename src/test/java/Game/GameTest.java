@@ -54,4 +54,9 @@ public class GameTest {
         Random random = new Random();
         return random.nextInt(100) + 1;
     }
+
+    @Test
+    public void mainScannerTest () {
+        Assert.assertEquals(Game.gameScanner(),"You can enter only digits");
+    }
 }
