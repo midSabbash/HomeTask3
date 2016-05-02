@@ -30,6 +30,6 @@
             <directory>src/test/resources</directory>
         </testResource>
     </testResources>
-    <build>
+    </build>
 
 </project>
