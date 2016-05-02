@@ -40,7 +40,6 @@ public class FractionTest {
         Assert.assertEquals(new Fraction(2,6).summing(new Fraction(3,5)),new Fraction(28,30));
     }
 
-
     @Test
     public void subtractionTest1() {
         Assert.assertEquals(new Fraction(3,5).subtraction(new Fraction(3,5)),new Fraction(0,25));

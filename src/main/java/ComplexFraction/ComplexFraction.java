@@ -2,13 +2,14 @@ package ComplexFraction;
 
 import Fraction.Fraction;
 
-import java.util.Objects;
-
 public class ComplexFraction extends Fraction {
+
     private int numerator;
     private int denominator;
     private int numerator1;
     private int denominator1;
+    private double num;
+    private double den;
 
     public ComplexFraction (int numerator , int denominator,int numerator1, int denominator1) {
         this.numerator = numerator;
@@ -17,16 +18,20 @@ public class ComplexFraction extends Fraction {
         this.denominator1 = denominator1;
     }
 
+    public ComplexFraction (double num, double den) {
+        this.num = num;
+        this.den = den;
+    }
+
     public ComplexFraction summing(ComplexFraction f) {
         return new ComplexFraction(this.numerator*f.numerator1-this.denominator*f.denominator1+this.numerator1*f.numerator-this.denominator1*f.denominator,
                 this.denominator*f.numerator1+this.numerator*f.denominator1+this.numerator1*f.denominator+this.denominator1*f.numerator,
                 this.numerator1*f.numerator1-this.denominator1*f.denominator1,this.denominator1*f.numerator1+this.numerator1*f.denominator1);
     }
 
-
     public ComplexFraction subtract(ComplexFraction f) {
-        return new ComplexFraction((this.numerator*f.numerator1-this.denominator*f.denominator1)-(this.numerator1*f.numerator-this.denominator1*f.numerator),
-                (this.denominator*f.numerator1+this.numerator*f.denominator1)-(this.numerator1*f.numerator+this.denominator1*f.numerator),
+        return new ComplexFraction((this.numerator*f.numerator1-this.denominator*f.denominator1)-(this.numerator1*f.numerator-this.denominator1*f.denominator),
+                (this.denominator*f.numerator1+this.numerator*f.denominator1)-(this.numerator1*f.denominator+this.denominator1*f.numerator),
                 this.numerator1*f.numerator1-this.denominator1*f.denominator1,this.denominator1*f.numerator1+this.numerator1*f.denominator1);
     }
 
@@ -40,14 +45,16 @@ public class ComplexFraction extends Fraction {
                 this.numerator1*f.numerator-this.denominator1*f.denominator,this.numerator1*f.denominator+this.denominator1*f.numerator);
     }
 
+    public ComplexFraction simplify() {
+        return new ComplexFraction ((double)(this.numerator*this.numerator1 + this.denominator * this.denominator1)/(double)(this.denominator1*this.denominator1 +
+        this.numerator1*this.numerator1),(double)(this.numerator*this.denominator1-this.numerator1*this.denominator)/(double)(this.denominator1*this.denominator1 +
+                this.numerator1*this.numerator1));
+    }
+
     @Override
     public String toString() {
-        return "ComplexFraction {" +
-                "numerator = " + numerator +
-                ", denominator = " + denominator +
-                ", numerator1 = " + numerator1 +
-                ", denominator1 = " + denominator1 +
-                '}';
+        if(numerator!=0||numerator1!=0||denominator!=0||denominator1!=0) return "(" +numerator + " " + denominator + ")(" + numerator1 + " " + denominator1 + ")";
+        return " Simplify " + num +" " + den;
     }
 
     @Override

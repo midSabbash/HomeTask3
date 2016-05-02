@@ -1,20 +1,25 @@
 package AutoBase;
 
 public class Driver {
-    private int driverID;
+
+    private long Mobile;
     private String name;
 
-    public Driver(int driverID, String name) {
-        this.setDriverID(driverID);
+    private int flightState;
+    private boolean repairCar;
+
+
+    public Driver(long mobile, String name) {
+        this.setMobile(mobile);
         this.setName(name);
     }
 
-    public int getDriverID() {
-        return driverID;
+    public long getMobile() {
+        return Mobile;
     }
 
-    public void setDriverID(int driverID) {
-        this.driverID = driverID;
+    public void setMobile(long mobile) {
+        this.Mobile = mobile;
     }
 
     public String getName() {
@@ -24,4 +29,31 @@ public class Driver {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Your driver " + name + ", " + "his phone number: " + Mobile;
+    }
+
+    public static int conditionCar () {
+        int c = (int) (Math.random() * 3);
+        switch (c) {
+            case 0:
+                System.out.println("car defective");
+                break;
+            case 1:
+                System.out.println("car right");
+                break;
+            case 2:
+                System.out.println("It requires minor repairs");
+                break;
+        }
+        return c;
+    }
+
+    public static int flightState (int State) {
+        return 0;
+    }
 }
+
+

@@ -1,13 +1,18 @@
 package AutoBase;
 
 public class Cars {
+
     private int numberplate;
-    private String brend;
+    private String brand;
 
+    public Cars(int numberplate, String brand) {
+        this.numberplate = numberplate;
+        this.brand = brand;
+    }
 
-    public Cars(int carID, String brend) {
-        this.setNumberplate(carID);
-        this.setBrend(brend);
+    public Cars() {
+        this.setNumberplate( numberplate);
+        this.setBrand(brand);
     }
 
     public int getNumberplate() {
@@ -18,12 +23,21 @@ public class Cars {
         this.numberplate = numberplate;
     }
 
-    public String getBrend() {
-        return brend;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setBrend(String brend) {
-        this.brend = brend;
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    @Override
+    public String toString() {
+        return "Car: " +
+                 brand + ' ' +
+                "numberplate - " + numberplate;
     }
 }
+
+
 
