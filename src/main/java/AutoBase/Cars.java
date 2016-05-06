@@ -10,11 +10,6 @@ public class Cars {
         this.brand = brand;
     }
 
-    public Cars() {
-        this.setNumberplate( numberplate);
-        this.setBrand(brand);
-    }
-
     public int getNumberplate() {
         return numberplate;
     }
@@ -36,6 +31,10 @@ public class Cars {
         return "Car: " +
                  brand + ' ' +
                 "numberplate - " + numberplate;
+    }
+
+    public void repairCar(){
+        Driver.conditionCar();
     }
 }
 

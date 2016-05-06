@@ -4,14 +4,20 @@ public class Driver {
 
     private long Mobile;
     private String name;
+    public boolean condition;
 
-    private int flightState;
-    private boolean repairCar;
+    public Driver(long mobile, String name, boolean condition) {
+        Mobile = mobile;
+        this.name = name;
+        this.condition = condition;
+    }
 
+    public boolean isCondition() {
+        return condition;
+    }
 
-    public Driver(long mobile, String name) {
-        this.setMobile(mobile);
-        this.setName(name);
+    public void setCondition(boolean condition) {
+        this.condition = condition;
     }
 
     public long getMobile() {
@@ -35,8 +41,8 @@ public class Driver {
         return "Your driver " + name + ", " + "his phone number: " + Mobile;
     }
 
-    public static int conditionCar () {
-        int c = (int) (Math.random() * 3);
+    static void conditionCar() {
+        int c = (int) (Math.random() * 2);
         switch (c) {
             case 0:
                 System.out.println("car defective");
@@ -44,15 +50,33 @@ public class Driver {
             case 1:
                 System.out.println("car right");
                 break;
-            case 2:
-                System.out.println("It requires minor repairs");
-                break;
         }
-        return c;
     }
 
-    public static int flightState (int State) {
-        return 0;
+    public static Order statusOrder (Order order, int check){
+        System.out.println("Order to " + order.destination + " Finished");
+        if (check == 1) return new Order(order.distance, order.destination, order.product, false);
+        return order;
+    }
+
+    public static Driver reason(Driver driver) {
+        int i = (int) (Math.random() * 10);
+        switch (i) {
+            case 1:
+                System.out.println("Seek");
+                driver.condition = false;
+                break;
+            case 2:
+                System.out.println("Drunk");
+                driver.condition = false;
+                break;
+            case 3:
+                System.out.println("Got hurt");
+                driver.condition = false;
+                break;
+            default:
+        }
+        return driver;
     }
 }
 

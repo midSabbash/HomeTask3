@@ -1,3 +1,4 @@
+import AutoBase.Dispatcher;
 import ComplexFraction.ComplexFraction;
 import Fraction.Fraction;
 import Game.GameBoolean;
@@ -46,9 +47,6 @@ public class Main {
                 System.out.println("The multiplication result ComplexFraction " + complexFraction.multiply(complexFraction1) + complexFraction.multiply(complexFraction1).simplify());
                 System.out.println("The divide result ComplexFraction " + complexFraction.divide(complexFraction1) + complexFraction.divide(complexFraction1).simplify());
                 break;
-            case 4:
-                break;
-
         }
     }
 }

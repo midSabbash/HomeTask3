@@ -2,14 +2,24 @@ package AutoBase;
 
 public class Order {
 
-    private int distance;
-    private String destination;
-    private String product;
+    public int distance;
+    public String destination;
+    public String product;
+    public static boolean status;
 
-    Order(int distance, String destination, String product){
+    Order(int distance, String destination, String product, boolean status){
         this.setDistance(distance);
         this.setDestination(destination);
         this.setProduct(product);
+        this.setStatus(status);
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     public String getProduct() {
@@ -34,5 +44,18 @@ public class Order {
 
     public void setDestination(String destination) {
         this.destination = destination;
+    }
+
+    @Override
+    public String toString() {
+        return "Order" +
+                "distance = " + distance +
+                ", destination - " + destination +
+                ", product - " + product +
+                ", status - " + status;
+    }
+
+    public String toString(int a) {
+        return "status - " + status;
     }
 }

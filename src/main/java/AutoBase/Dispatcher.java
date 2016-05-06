@@ -1,8 +1,9 @@
 package AutoBase;
 
-import AutoBase.Cars;
-
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import static AutoBase.Driver.statusOrder;
 
 public class Dispatcher {
 
@@ -20,11 +21,11 @@ public class Dispatcher {
 
     public static void main(String[] args) {
 
-        Order order1 = new Order(499, "Kiev", "Auto parts");
-        Order order2 = new Order(1017, "Lvov", "Pistons");
-        Order order3 = new Order(715, "Odessa", "Tires");
-        Order order4 = new Order(803, "Rovno", "Wheels");
-        Order order5 = new Order(541, "Nikolaev", "Moto parts");
+        Order order1 = new Order(499, "Kiev", "Auto parts",true);
+        Order order2 = new Order(1017, "Lvov", "Pistons",true);
+        Order order3 = new Order(715, "Odessa", "Tires",true);
+        Order order4 = new Order(803, "Rovno", "Wheels",true);
+        Order order5 = new Order(541, "Nikolaev", "Moto parts",true);
 
         Cars car1 = new Cars(9844, "Volvo");
         Cars car2 = new Cars(8432, "DAF");
@@ -32,11 +33,7 @@ public class Dispatcher {
         Cars car4 = new Cars(7731, "MAN");
         Cars car5 = new Cars(1322, "Ford");
 
-        Driver driver1 = new Driver(809393234, "Ivan");
-        Driver driver2 = new Driver(805073721, "Gena");
-        Driver driver3 = new Driver(806356324, "Nina");
-        Driver driver4 = new Driver(809723111, "Artur");
-        Driver driver5 = new Driver(805088332, "Mark");
+        Driver driver1 = new Driver(809393234, "Ivan", true);
 
         System.out.println("Select Car:");
         System.out.println("1 " + car1);
@@ -45,61 +42,75 @@ public class Dispatcher {
         System.out.println("4 " + car4);
         System.out.println("5 " + car5);
 
+        System.out.println(statusOrder(order1,2).toString(0));
+
         int answer = dispScanner();
         switch (answer){
             case 1:
                 System.out.println(car1);
-                repair();
+                selectDriver();
+                Driver.conditionCar();
                 break;
             case 2:
                 System.out.println(car2);
-                repair();
+                selectDriver();
+                Driver.conditionCar();
                 break;
             case 3:
                 System.out.println(car3);
-                repair();
+                selectDriver();
+                Driver.conditionCar();
                 break;
             case 4:
                 System.out.println(car4);
-                repair();
+                selectDriver();
+                Driver.conditionCar();
                 break;
             case 5:
                 System.out.println(car5);
-                repair();
+                selectDriver();
+                Driver.conditionCar();
         }
 
+        removeDriver(driver1);
+    }
+
+    private static int selectDriver(){
         int i = (int) (Math.random() * 5);
         switch (i){
             case 1:
-                System.out.println(driver1);
+                System.out.println(new Driver(809393234, "Ivan", true));
                 break;
             case 2:
-                System.out.println(driver2);
+                System.out.println(new Driver(805073721, "Gena", true));
                 break;
             case 3:
-                System.out.println(driver3);
+                System.out.println(new Driver(806356324, "Nina", true));
                 break;
             case 4:
-                System.out.println(driver4);
+                System.out.println(new Driver(809723111, "Artur", true));
                 break;
             case 5:
-                System.out.println(driver5);
+                System.out.println(new Driver(805088332, "Mark", true));
         }
-    }
-
-    public void removeDriver (Driver driver) {
+        return i;
 
     }
 
-    public void order (Order order){
-
+    public Order createOrder (int distance, String destination, String product, boolean status){
+        return new Order(distance, destination, product, status);
     }
 
-    public static int repair() {
-        int condition = Driver.conditionCar();
-        System.out.println(condition);
-        return condition;
+    private static void removeDriver(Driver driver) {
+        Driver Jeka = Driver.reason(driver);
+        if(Jeka.condition) blackList(Jeka);
     }
 
+    private static void blackList(Driver driver) {
+        ArrayList<Driver> drivers = new ArrayList<Driver>();
+        drivers.add(driver);
+        System.out.println(drivers.get(0));
+        System.out.println(drivers.size());
 
+    }
 }
